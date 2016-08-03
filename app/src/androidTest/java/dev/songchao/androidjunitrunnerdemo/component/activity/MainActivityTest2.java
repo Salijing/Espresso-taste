@@ -74,7 +74,8 @@ public class MainActivityTest2 extends ActivityInstrumentationTestCase2<MainActi
 
     @Test
     public void testList() {
-        onData(allOf(instanceOf(AListBean.class), getAMatcher("1826262626262"))).atPosition(2);
+        onData(allOf(instanceOf(AListBean.class), getAMatcher("1826262626262"))).
+                inAdapterView(ViewMatchers.withId(R.id.list_1)).atPosition(2);
     }
 
     private Matcher<Object> getAMatcher(final String phone) {
