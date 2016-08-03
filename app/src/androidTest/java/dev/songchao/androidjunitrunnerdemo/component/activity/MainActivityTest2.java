@@ -26,6 +26,7 @@ import dev.songchao.androidjunitrunnerdemo.model.bean.AListBean;
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.Espresso.setFailureHandler;
+import static android.support.test.espresso.Espresso.unregisterIdlingResources;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
@@ -38,6 +39,7 @@ public class MainActivityTest2 extends ActivityInstrumentationTestCase2<MainActi
     private MainActivity mMainActivity;
 
     private IdlingResource.ResourceCallback mResourceCallback;
+    private  TestIdlingResource mTestIdlingResource;
 
     public MainActivityTest2() {
         super(MainActivity.class);
@@ -49,10 +51,10 @@ public class MainActivityTest2 extends ActivityInstrumentationTestCase2<MainActi
         mMainActivity = getActivity();
         ////分配异常处理者
         setFailureHandler(new CustomFailureHandler(mMainActivity));
-//        TestIdlingResource testIdlingResource = new TestIdlingResource(mMainActivity);
+//        mTestIdlingResource = new TestIdlingResource(mMainActivity);
 //        mResourceCallback = new TestResourceCallback();
-//        testIdlingResource.registerIdleTransitionCallback(mResourceCallback);
-//        registerIdlingResources(testIdlingResource);
+//        mTestIdlingResource.registerIdleTransitionCallback(mResourceCallback);
+//        registerIdlingResources(mTestIdlingResource);
     }
 
     @Test
@@ -154,7 +156,7 @@ public class MainActivityTest2 extends ActivityInstrumentationTestCase2<MainActi
 
     @After
     public void testAfter() {
-//        unregisterIdlingResources(mResourceCallback);
+//        unregisterIdlingResources(mTestIdlingResource);
         Log.d("Sysout", "==========================================================================end");
     }
 }
