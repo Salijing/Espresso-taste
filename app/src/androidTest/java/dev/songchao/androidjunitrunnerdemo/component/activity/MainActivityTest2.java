@@ -97,6 +97,7 @@ public class MainActivityTest2 extends ActivityInstrumentationTestCase2<MainActi
 
         public CustomFailureHandler(Context targetContext) {
             Log.d("Sysout", "init CustomFailureHandler");
+            //如果只是看看异常的问题，这里可以在生成一个默认的处理者，出问题让它后续处理
             delegate = new DefaultFailureHandler(targetContext);
         }
 
