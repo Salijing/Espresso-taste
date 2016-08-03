@@ -47,7 +47,7 @@ public class MainActivityTest2 extends ActivityInstrumentationTestCase2<MainActi
     public void setUp() throws Exception {
         Log.d("Sysout", "==========================================================================begin");
         mMainActivity = getActivity();
-        //处理异常
+        ////分配异常处理者
         setFailureHandler(new CustomFailureHandler(mMainActivity));
 //        TestIdlingResource testIdlingResource = new TestIdlingResource(mMainActivity);
 //        mResourceCallback = new TestResourceCallback();
@@ -92,7 +92,7 @@ public class MainActivityTest2 extends ActivityInstrumentationTestCase2<MainActi
         };
     }
 
-    private static class CustomFailureHandler implements FailureHandler {
+    private class CustomFailureHandler implements FailureHandler {
         private final FailureHandler delegate;
 
         public CustomFailureHandler(Context targetContext) {
